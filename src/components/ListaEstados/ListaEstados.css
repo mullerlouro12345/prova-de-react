@@ -1,0 +1,21 @@
+.jumbo {
+    width: 100%;
+    align-content: center;
+    justify-content: center;    
+}
+.content {
+    width: 80%;
+    height: 8vh;
+    padding-top: 15px;
+    border-bottom: 1px solid black;
+    align-content: center;
+    justify-content: center;
+    display: inline-block;
+}
+.con1 {
+    float: right;
+}
+.con2 {
+    float: left;
+}
+
