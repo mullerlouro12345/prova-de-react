@@ -7,15 +7,18 @@ import ListaMunicipios from '../ListaMunicipios';
 class Municipios extends Component {
 
     state = {
-        municipios: []
+        municipios: [],
+        load: ''
     }
 
     async componentDidMount () {
         const { id } = this.props.match.params;
+        
+        this.setState({ load: 'Carregando cidades...' });
 
         const resp = await axios.get(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${id}/municipios`)
         
-            this.setState({ municipios: resp.data });
+        this.setState({ municipios: resp.data, load: '' });
         
     }
   render() {
@@ -25,6 +28,7 @@ class Municipios extends Component {
                 <Link to="/">Voltar</Link>
             </nav>
             <h3>Um total de: {this.state.municipios.length} municípios</h3>
+            <p>{this.state.load}</p>
             {
                 this.state.municipios.map(m => {
                     return (
